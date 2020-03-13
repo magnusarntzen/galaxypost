@@ -57,4 +57,9 @@ The metaproteomics workflow is shared publicly and can be found [here](LINK)
 
 **Integration of omics data using R:**
 --------------------------------------
+EXPLAIN SCRIPTS HERE WITH RLIVE-LINK TO GALAXY
+
+![here](binning.png)
+![here](taxonomic_abundance.png)
+![here](cazyme_counts.png)
 
