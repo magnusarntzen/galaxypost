@@ -35,7 +35,7 @@ An Illumnia HiSeq 3000 platform was used for metagenomics shotgun sequencing of 
 The metagenomics workflow is shared publicly and can be found [here](LINK)
 
 **Metatranscriptomics:**
-========================
+------------------------
 Samples were taken at different timepoints during the lifetime of the microbial community, as indicated in the figure above. For this analysis, we used the time points 13h, 23h and 38h. mRNA extraction was performed in triplicate and was sequenced with paired-end technology (2 x 125 bp) on one lane of an Illumnia HiSeq 3000 system. These were the steps of the metatranscriptomics analysis workflow, numbered according to the figure below:
 1.	Fastq-files were [uploaded to Galaxy via ftp](https://galaxyproject.org/tutorials/collections/#uploading-from-ftp) (~45Gb per file) and organized as a [Collection of paired datasets](https://galaxyproject.org/tutorials/collections/).
 2.	Quality control with [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) to assess the overrepresentation of features (adapters/primers)
@@ -46,5 +46,13 @@ Samples were taken at different timepoints during the lifetime of the microbial 
 ![here](metatranscriptomics.png)
 The metatranscriptomics workflow is shared publicly and can be found [here](LINK)
 
+**Metaproteomics:**
+-------------------
+Samples for proteomics were taken for every timepoint as indicated in the dataset-figure above. Each sample were separated into 16 fractions by SDS-PAGE, cut out and digested with trypsin before analyzed on a Q-Exactive (Thermo) mass spectrometer. These were the steps of the metaproteomics analysis workflow, numbered according to the figure below:
+1.	Mass spectrometer RAW files were [uploaded to Galaxy via ftp](https://galaxyproject.org/tutorials/collections/#uploading-from-ftp) (~1Gb per file). A local installation of MaxQuant version 1.6.3.4 (NB: same version as on Galaxy!) was used to generate a configuration file (mqpar.xml) with all the necessary settings. This configuration file was then uploaded to Galaxy as used as input.
+2.	Identification and quantification of proteins were accomplished using the software [MaxQuant](https://www.maxquant.org/) by mapping MS/MS spectra to putative proteins predicted by FragGeneScan in the metagenomics workflow. The Protein Groups file was used as input in downstream R-scripts.
+
+![here](metaproteomics.png)
+The metaproteomics workflow is shared publicly and can be found [here](LINK)
 
 
