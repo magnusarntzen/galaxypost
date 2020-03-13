@@ -1,7 +1,7 @@
 Integrative meta-omics in Galaxy
 ================================
 By Magnus Ø. Arntzen (Norwegian University of Life Sciences) and Bjoern Gruning (University of Freiburg)
-
+(This post is also available as a [poster](2020-JGI-Galaxy.pdf))
 
 **Abstract:**
 -------------
