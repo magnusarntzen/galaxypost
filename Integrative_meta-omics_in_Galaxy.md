@@ -60,6 +60,12 @@ The metaproteomics workflow is shared publicly and can be found [here](LINK)
 EXPLAIN SCRIPTS HERE WITH RLIVE-LINK TO GALAXY
 
 ![here](binning.png)
+
+**Taxonomic abundance plot**  
+Taxonomic abundances can be calculated from the metaproteomics data using the summed abundances (not log2'ed!) of all proteins per bin. The most abundant community member at all time points is Bin1, *Hungateiclostridium thermocellum*.
 ![here](taxonomic_abundance.png)
+
+**Overview off all CAZymes in the microbial community**  
+This suggests that Bin1 (*Hungateiclostridium thermocellum*) is the main polysaccharide hydrolyser, and further, that it utilizes cellulosomes, i.e. large enzyme complexes with many enzymes simulateously degrading cellulose. The monomer, glucose, is used by the many suger fermenters.  
 ![here](cazyme_counts.png)
 
