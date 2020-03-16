@@ -57,7 +57,17 @@ The metaproteomics workflow is shared publicly and can be found [here](LINK)
 
 **Integration of omics data using R:**
 --------------------------------------
-The first plot to consider is the phylogenetic binning of contigs. In our workflow the binning was accomplished using metagenomic reads and the assembled contigs from metaSPAdes. This produces a two outputs of specific interest, an abundance file and a list of the bins. The latter is in FASTA format and one file per bin exist. Our script reads these files and generate a list of contigs with information about the contig abundance and which bin it belongs to. Then, we plot the contig's GC% vs. abundance using ggplot in R and color it by bin. A metagenome-assembled genome (MAG), or bin, typically has a well-clustered layout in this plot.  
+For the following, a stand-alone version of RStudio can be used, or one can utilize the [live RStudio](https://live.usegalaxy.eu/) which has direct [access to the data residing in the Galaxy History](https://training.galaxyproject.org/topics/galaxy-ui/tutorials/rstudio/tutorial.html).  
+
+The files needed to generate the following plots are:
+- Abundance table from MaxBin2
+- List of bins (contigs in FASTA-format)
+- The combined annotation file from CAZY and InterProScan
+- The combined quantification file from Kallisto
+- ProteinGroups.txt from MaxQuant
+
+
+The first plot to consider is the phylogenetic binning of contigs. In our workflow the binning was accomplished using metagenomic reads and the assembled contigs from metaSPAdes. This produces a two outputs of specific interest, an abundance file and a list of the bins. The latter is in FASTA format and one file per bin exist. Our script reads these files and generate a list of contigs with information about the contig abundance and which bin it belongs to. Then, we plot the contig's GC% vs. abundance using [ggplot](https://ggplot2.tidyverse.org/index.html) in R and color it by bin. A metagenome-assembled genome (MAG), or bin, typically has a well-clustered layout in this plot.  
 ![here](binning.png)
 
 
