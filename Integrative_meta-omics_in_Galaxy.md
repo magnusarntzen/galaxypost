@@ -84,3 +84,9 @@ MORE INFO
 This suggests that Bin1 (*Hungateiclostridium thermocellum*) is the main polysaccharide hydrolyser, and further, that it utilizes cellulosomes, i.e. large enzyme complexes with many enzymes simulateously degrading cellulose. The monomer, glucose, is used by the many suger fermenters.  
 ![here](cazyme_counts.png)
 
+  
+PLOT WITH DUAL QUANTIFICATION  
+
+PLOT OF CARBON FLOW INFERENCE
+
+
