@@ -62,14 +62,14 @@ For the following, a stand-alone version of RStudio can be used, or one can util
 The files needed to generate the following plots are:
 - Abundance table from MaxBin2
 - List of bins (contigs in FASTA-format)
-- The combined annotation file from CAZY and InterProScan
+- The combined annotation file from dbCAN and InterProScan
 - The combined quantification file from Kallisto
 - ProteinGroups.txt from MaxQuant
 
 
-The first plot to consider is the phylogenetic binning of contigs. In our workflow the binning was accomplished using metagenomic reads and the assembled contigs from metaSPAdes. This produces a two outputs of specific interest, an abundance file and a list of the bins. The latter is in FASTA format and one file per bin exist. Our script reads these files and generate a list of contigs with information about the contig abundance and which bin it belongs to. Then, we plot the contig's GC% vs. abundance using [ggplot](https://ggplot2.tidyverse.org/index.html) in R and color it by bin. A metagenome-assembled genome (MAG), or bin, typically has a well-clustered layout in this plot.  
+The first plot to consider is the phylogenetic binning of contigs. In our workflow the binning was accomplished using metagenomic reads and the assembled contigs from metaSPAdes. This produced two outputs of specific interest, an abundance file and a list of the bins. The latter is in FASTA format and one file per bin exist. Our script reads these files and generate a list of contigs with information about the contig abundance and which bin it belongs to. Then, we plot the contig's GC% vs. abundance using [ggplot](https://ggplot2.tidyverse.org/index.html) in R and color it by bin. A metagenome-assembled genome (MAG), or bin, typically has a well-clustered layout in this plot, which can be highlighted with the [geom_density2d function](https://ggplot2.tidyverse.org/reference/geom_density_2d.html).  
 ![here](binning.png)
-
+  
   
   
 Taxonomic abundance plots can be calculated either from metaproteomics or metatranscriptomics data, using the summed abundances (not log2'ed!) of all mRNA/proteins per bin. Here we calculated the summed LFQ (label-free quantification) values reported by MaxQuant. The most abundant community member at all time points was Bin1, *Hungateiclostridium thermocellum*.
@@ -77,11 +77,9 @@ Taxonomic abundance plots can be calculated either from metaproteomics or metatr
 
   
   
-Further, we can generate an overview of all CAZymes in the microbial community. This can of course be made for any functional annotation, but here we are focussing on CAZymes.  
-
-MORE INFO  
-
-This suggests that Bin1 (*Hungateiclostridium thermocellum*) is the main polysaccharide hydrolyser, and further, that it utilizes cellulosomes, i.e. large enzyme complexes with many enzymes simulateously degrading cellulose. The monomer, glucose, is used by the many suger fermenters.  
+Further, we can generate an overview of all CAZymes in the microbial community. This can of course be made for any functional annotation, but here we are focussing on CAZymes. We use the annotation file from dbCAN and InterProScan and filter this for only CAZymes. Note that CAZymes are modular domains and enzymes can therefore harbour multiple CAZy domains; in our case this means that the CAZy column is semicolon-separated. In [Tidyverse](https://www.tidyverse.org/), there is a function to split multiple terms within one column into several rows, keeping all the other information, see [separate_rows](https://tidyr.tidyverse.org/reference/separate_rows.html).
+  
+This overview plot suggests that Bin1 (*Hungateiclostridium thermocellum*) is the main polysaccharide hydrolyser, and further, that it utilizes cellulosomes, i.e. large enzyme complexes where many enzymes can degrade cellulose simulateously. The monomer, glucose, is used by the many suger fermenters present in the community.  
 ![here](cazyme_counts.png)
 
   
