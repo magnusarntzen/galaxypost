@@ -84,19 +84,26 @@ This overview plot suggests that Bin1 (*Hungateiclostridium thermocellum*) is th
 
   
 For this dataset we have two 'functional layers', mRNA and protein. We can therefore calculate quantification of individual enzymes, or for enzyme classes, or even at pathway-level by utilizing e.g. the EC-annotation available within the InterProScan annotation file. For this example, we have focussed on two enzyme classes, glycoside hydrolases and glycosyl transferases; these are colored red and blue in the below figure, respectively.  
-For this we need the ProteinGroups.txt file from MaxQuant, and the combined quantification file from Kallisto. We use the 'Majority protein IDs' (up to first semicolon) as geneID for metaproteomics and 'target_id' as geneID for metatranscriptomics. In Tidyverse, we can join the two tables based on these common identifiers by using the function [full_join](https://dplyr.tidyverse.org/reference/join.html). As quantitative values we use LFQ (label-free quantification) for proteomics and tpm (transcript per million) for transcriptomics. Both values need to be log2-transformed. Note that ggplot (and Tidyverse in general) does not work with tables with quantification vallues in different columns. We therefore need to 'melt' the table to generate a one-column value representation. This can be accomplished using the [pivot_longer function](https://tidyr.tidyverse.org/reference/pivot_longer.html). Then finally, to visualize the trends in quantification over time, we apply a z-score normalization per protein/transcript, independently for each omics.  
+For this we need the ProteinGroups.txt file from MaxQuant, and the combined quantification file from Kallisto. We use the 'Majority protein IDs' (up to first semicolon) as geneID for metaproteomics and 'target_id' as geneID for metatranscriptomics. In Tidyverse, we can join the two tables based on these common identifiers by using the function [full_join](https://dplyr.tidyverse.org/reference/join.html). As quantitative values we use LFQ (label-free quantification) for proteomics and tpm (transcript per million) for transcriptomics. Both values need to be log2-transformed. Note that ggplot (and Tidyverse in general) does not work with tables with quantification values in different columns. We therefore need to 'melt' the table to generate a one-column value representation. This can be accomplished using the [pivot_longer function](https://tidyr.tidyverse.org/reference/pivot_longer.html). Then finally, to visualize the trends in quantification over time, we apply a z-score normalization per protein/transcript, independently for each omics.  
 
-Note that the trends in quantification at enzyme-class level is by and large similar; however, for some classes there are differences. This can be linked to the half-life of molecules, which is just a few minutes for mRNA while up to hours for proteins.
+Note that the trends in quantification at enzyme-class level is by and large similar; however, for some classes there are differences. This can be linked to the half-life of molecules, which is just a few minutes for mRNA while up to hours for proteins.  
+  
 ![here](MP_MT_quantification.png)
-
-
-PLOT OF CARBON FLOW INFERENCE
+  
+  
+The last plot cannot be generated using a R-script, unfortunately, but rather require your ulitmate Illustrater skills. This is a plot of the inferred carbon flow within the microbial community, based on the plots and data above. The metagenomics provided us with MAGs present in our community, and the functional annotaion allowed us to predict what each of them were capable of doing. Metatranscriptomics and metaproteomics provided us with information about what they were actually doing, and who was doing what. Additional community metadata, such as gas analysis, reveiled that the final product was methane. We can then draw a graph of anaerobic degradation, starting with cellulose being converted in glucose, that is converted further to acetate. A syntrophic acetate oxidizing bacterium and a methanogetn (both not identified in this proof-of-principle Galaxy implementation, but in the full dataset) converts acetate further to formate, CO2, H2 and methane.  
+  
+Here we have drawn the relevant pathways and decorated them with metaproteomics LFQ-values (from the full dataset). This suggests that cellulose is primarily degraded by *Hungateiclostridium thermocellum* while the cellulose monomer, glucose, is fermented to acetate by *Coprothermobacter proteolyticus*, *Acetomicrobium mobile* and *Tissierellaceae*.  
+  
 ![here](carbonflow.png)
 
   
 **Acknowledgements:**  
-This work was funded by the [Norwegian Centennial Chair Programme](https://cbs.umn.edu/norwegian-centennial-chair/home).
-
+This work was funded by the [Norwegian Centennial Chair Programme](https://cbs.umn.edu/norwegian-centennial-chair/home).  
+  
+This study has been described in its entirey here:
+- [Kunath BJ, Delogu F, et. al. From proteins to polysaccharides: lifestyle and genetic evolution of Coprothermobacter proteolyticus. ISME J. 2019 Mar; 13(3):603-617](https://www.nature.com/articles/s41396-018-0290-y)
+- [Delogu F, Kunath BJ, et. Al. Integration of absolute multi-omics reveals translational and metabolic interplay in mixed-kingdom microbiomes. bioRxiv.](https://www.biorxiv.org/content/10.1101/857599v1)
 
 Contributers (Norwegian University of Life Sciences):
 - Francesco Delogu
