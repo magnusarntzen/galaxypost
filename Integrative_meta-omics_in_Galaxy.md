@@ -1,10 +1,6 @@
----
-title: "Test"
-author: "Magnus Arntzen"
----
 Integrative meta-omics in Galaxy
 ================================
-By <span style='font-size: 30px'>Magnus Ø. Arntzen</style> (Norwegian University of Life Sciences) and Bjoern Gruning (University of Freiburg)  
+By <span style='font-size: 30px'>Magnus Ø. Arntzen</span> (Norwegian University of Life Sciences) and Bjoern Gruning (University of Freiburg)  
 (This post is also available as a [poster](2020-JGI-Galaxy.pdf))  
 
 Contributers:
