@@ -15,7 +15,7 @@ We have applied this pipeline to deconvolute a highly efficient cellulose-degrad
 ----------------
 The sample studied in this work originated from a thermophilic biogas-plant operated on muncipal food waste and manure. After a round in a lab-scale reactor, we performed a serial dilution to extinction experiment to simplify and enrich the community for growth on cellulose (Norwegian Spruce). 
 
-![here](dataset.png)
+![DATASET FIGURE](dataset.png)
 
 **Metagenomics:**
 -----------------
@@ -31,7 +31,7 @@ An Illumnia HiSeq 3000 platform was used for metagenomics shotgun sequencing of 
 9.	We then combined all the functional annotations from InterProScan and dbCAN into one file for downstream analysis using the Galaxy implementation of awk to generate a tabular with one protein per row and the different annotations in individual columns. This file was used as input of R-scripts to count the presence of specific enzymes in the metagenome (described further down).
 10.	The putative genes and proteins (fasta-files) from FragGeneScan can be manually augmented with strains from public repositories such as [NCBI](https://www.ncbi.nlm.nih.gov/genome), [UniProt](https://www.uniprot.org/) or [IMG](https://img.jgi.doe.gov/cgi-bin/w/main.cgi).  
 
-![here](metagenomics.png)
+![META-G WORKFLOW FIGURE](metagenomics.png)
 The metagenomics workflow is shared publicly and can be found [here](LINK)
 
 **Metatranscriptomics:**
@@ -43,7 +43,7 @@ Samples were taken at different timepoints during the lifetime of the microbial 
 4.	rRNA and tRNA were removed using the software [SortMeRNA](https://bioinfo.lifl.fr/RNA/sortmerna/).
 5.	Quantification of mRNA was done with the pseudoaligment software [Kallisto](https://pachterlab.github.io/kallisto/about) by mapping the transcripts to the putative genes predicted by FragGeneScan in the metagenomics workflow. The outputs from Kallisto, one per sample-pair, were joined in order to generate one single file for import to R. 
 
-![here](metatranscriptomics.png)
+![META-T WORKFLOW FIGURE](metatranscriptomics.png)
 The metatranscriptomics workflow is shared publicly and can be found [here](LINK)
 
 **Metaproteomics:**
@@ -52,7 +52,7 @@ Samples for proteomics were taken for every timepoint as indicated in the datase
 1.	144 mass spectrometer RAW files were uploaded to Galaxy using the web interface (~1Gb per file). A local Windows-installation of MaxQuant version 1.6.3.4 (NB: same version as on Galaxy!) was used to generate a configuration file (mqpar.xml) with all the necessary settings. This configuration file was then uploaded to Galaxy as used as input.
 2.	Identification and quantification of proteins were accomplished using the software [MaxQuant](https://www.maxquant.org/) by mapping MS/MS spectra to putative proteins predicted by FragGeneScan in the metagenomics workflow. The Protein Groups file was used as input in downstream R-scripts.
 
-![here](metaproteomics.png)
+![META-P WORKFLOW FIGURE](metaproteomics.png)
 The metaproteomics workflow is shared publicly and can be found [here](LINK)
 
 **Integration of omics data using R:**
@@ -68,19 +68,19 @@ The files needed to generate the following plots are:
 
 
 The first plot to consider is the phylogenetic binning of contigs. In our workflow the binning was accomplished using metagenomic reads and the assembled contigs from metaSPAdes. This produced two outputs of specific interest, an abundance file and a list of the bins. The latter is in FASTA format and one file per bin exist. Our script reads these files and generate a list of contigs with information about the contig abundance and which bin it belongs to. Then, we plot the contig's GC% vs. abundance using [ggplot](https://ggplot2.tidyverse.org/index.html) in R and color it by bin. A metagenome-assembled genome (MAG), or bin, typically has a well-clustered layout in this plot, which can be highlighted with the [geom_density2d function](https://ggplot2.tidyverse.org/reference/geom_density_2d.html).  
-![here](binning.png)
+![BINNING FIGURE](binning.png)
   
   
   
 Taxonomic abundance plots can be calculated either from metaproteomics or metatranscriptomics data, using the summed abundances (not log2'ed!) of all mRNA/proteins per bin. Here we calculated the summed LFQ (label-free quantification) values reported by MaxQuant. The most abundant community member at all time points was Bin1, *Hungateiclostridium thermocellum*.
-![here](taxonomic_abundance.png)
+![TAXONOMIC ABUNDANCE FIGURE](taxonomic_abundance.png)
 
   
   
 Further, we can generate an overview of all CAZymes in the microbial community. This can of course be made for any functional annotation, but here we are focussing on CAZymes. We use the annotation file from dbCAN and InterProScan and filter this for only CAZymes. Note that CAZymes are modular domains and enzymes can therefore harbour multiple CAZy domains; in our case this means that the CAZy column is semicolon-separated. In [Tidyverse](https://www.tidyverse.org/), there is a function to split multiple terms within one column into several rows, keeping all the other information, see [separate_rows](https://tidyr.tidyverse.org/reference/separate_rows.html).
   
 This overview plot suggests that Bin1 (*Hungateiclostridium thermocellum*) is the main polysaccharide hydrolyser, and further, that it utilizes cellulosomes, i.e. large enzyme complexes where many enzymes can degrade cellulose simulateously. The monomer, glucose, is used by the many suger fermenters present in the community.  
-![here](cazyme_counts.png)
+![CAZYME COUNTS FINGURE](cazyme_counts.png)
 
   
 For this dataset we have two 'functional layers', mRNA and protein. We can therefore calculate quantification of individual enzymes, or for enzyme classes, or even at pathway-level by utilizing e.g. the EC-annotation available within the InterProScan annotation file. For this example, we have focussed on two enzyme classes, glycoside hydrolases and glycosyl transferases; these are colored red and blue in the below figure, respectively.  
@@ -88,14 +88,14 @@ For this we need the ProteinGroups.txt file from MaxQuant, and the combined quan
 
 Note that the trends in quantification at enzyme-class level is by and large similar; however, for some classes there are differences. This can be linked to the half-life of molecules, which is just a few minutes for mRNA while up to hours for proteins.  
   
-![here](MP_MT_quantification.png)
+![META-P META-T QUANTIFICATION FIGURE](MP_MT_quantification.png)
   
   
-The last plot cannot be generated using a R-script, unfortunately, but rather require your ulitmate Illustrater skills. This is a plot of the inferred carbon flow within the microbial community, based on the plots and data above. The metagenomics provided us with MAGs present in our community, and the functional annotaion allowed us to predict what each of them were capable of doing. Metatranscriptomics and metaproteomics provided us with information about what they were actually doing, and who was doing what. Additional community metadata, such as gas analysis, reveiled that the final product was methane. We can then draw a graph of anaerobic degradation, starting with cellulose being converted in glucose, that is converted further to acetate. A syntrophic acetate oxidizing bacterium and a methanogetn (both not identified in this proof-of-principle Galaxy implementation, but in the full dataset) converts acetate further to formate, CO2, H2 and methane.  
+The last plot cannot be generated using a R-script, unfortunately, but rather require your ulitmate Illustrator/[Inkscape](https://inkscape.org/) skills. This is a plot of the inferred carbon flow within the microbial community, based on the plots and data above. The metagenomics provided us with MAGs present in our community, and the functional annotaion allowed us to predict what each of them were capable of doing. Metatranscriptomics and metaproteomics provided us with information about what they were actually doing, and who was doing what. Additional community metadata, such as gas analysis, reveiled that the final product was methane. We can then draw a graph of anaerobic degradation, starting with cellulose being converted in glucose, that is converted further to acetate. A syntrophic acetate oxidizing bacterium and a methanogetn (both not identified in this proof-of-principle Galaxy implementation, but in the full dataset) converts acetate further to formate, CO2, H2 and methane.  
   
 Here we have drawn the relevant pathways and decorated them with metaproteomics LFQ-values (from the full dataset). This suggests that cellulose is primarily degraded by *Hungateiclostridium thermocellum* while the cellulose monomer, glucose, is fermented to acetate by *Coprothermobacter proteolyticus*, *Acetomicrobium mobile* and *Tissierellaceae*.  
   
-![here](carbonflow.png)
+![CARBON FLOW FIGURE](carbonflow.png)
 
   
 **Acknowledgements:**  
