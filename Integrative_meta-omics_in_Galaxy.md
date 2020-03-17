@@ -1,13 +1,7 @@
 Integrative meta-omics in Galaxy
 ================================
-By Magnus Ø. Arntzen <br/>(Norwegian University of Life Sciences) and Bjoern Gruning (University of Freiburg)  
+By Magnus Ø. Arntzen (Norwegian University of Life Sciences) and Bjoern Gruning (University of Freiburg)  
 (This post is also available as a [poster](2020-JGI-Galaxy.pdf))  
-
-Contributers:
-- Francesco Delogu
-- Praveen Kumar
-- Benoit Kunath
-
 
 **Abstract:**
 -------------
@@ -92,7 +86,21 @@ This suggests that Bin1 (*Hungateiclostridium thermocellum*) is the main polysac
 
   
 PLOT WITH DUAL QUANTIFICATION  
+![here](MP_MT_quantification.png)
+
 
 PLOT OF CARBON FLOW INFERENCE
+![here](carbonflow.png)
 
 
+Contributers (Norwegian University of Life Sciences):
+- Francesco Delogu
+- Benoit Kunath
+- Phil Pope
+
+Contributers (University of Minnesota):
+- Praveen Kumar
+- Subina Mehta
+- James E. Johnson
+- Pratik Jagtap
+- Timothy J. Griffin
