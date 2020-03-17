@@ -83,7 +83,10 @@ This overview plot suggests that Bin1 (*Hungateiclostridium thermocellum*) is th
 ![here](cazyme_counts.png)
 
   
-PLOT WITH DUAL QUANTIFICATION  
+For this dataset we have two 'functional layers', mRNA and protein. We can therefore calculate quantification of individual enzymes, or for enzyme classes, or even at pathway-level by utilizing e.g. the EC-annotation available within the InterProScan annotation file. For this example, we have focussed on two enzyme classes, glycoside hydrolases and glycosyl transferases; these are colored red and blue in the below figure, respectively.  
+For this we need the ProteinGroups.txt file from MaxQuant, and the combined quantification file from Kallisto. We use the 'Majority protein IDs' (up to first semicolon) as geneID for metaproteomics and 'target_id' as geneID for metatranscriptomics. In Tidyverse, we can join the two tables based on these common identifiers by using the function [full_join](https://dplyr.tidyverse.org/reference/join.html). As quantitative values we use LFQ (label-free quantification) for proteomics and tpm (transcript per million) for transcriptomics. Both values need to be log2-transformed. Note that ggplot (and Tidyverse in general) does not work with tables with quantification vallues in different columns. We therefore need to 'melt' the table to generate a one-column value representation. This can be accomplished using the [pivot_longer function](https://tidyr.tidyverse.org/reference/pivot_longer.html). Then finally, to visualize the trends in quantification over time, we apply a z-score normalization per protein/transcript, independently for each omics.  
+
+Note that the trends in quantification at enzyme-class level is by and large similar; however, for some classes there are differences. This can be linked to the half-life of molecules, which is just a few minutes for mRNA while up to hours for proteins.
 ![here](MP_MT_quantification.png)
 
 
