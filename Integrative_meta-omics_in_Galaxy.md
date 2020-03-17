@@ -92,6 +92,10 @@ PLOT WITH DUAL QUANTIFICATION
 PLOT OF CARBON FLOW INFERENCE
 ![here](carbonflow.png)
 
+  
+**Acknowledgements:**  
+This work was funded by the [Norwegian Centennial Chair Programme](https://cbs.umn.edu/norwegian-centennial-chair/home).
+
 
 Contributers (Norwegian University of Life Sciences):
 - Francesco Delogu
