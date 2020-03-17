@@ -1,6 +1,6 @@
 Integrative meta-omics in Galaxy
 ================================
-By Magnus Ø. Arntzen (Norwegian University of Life Sciences)  
+By [Magnus Ø. Arntzen](https://www.nmbu.no/ans/magnus.arntzen) (Norwegian University of Life Sciences)  
 (This post is also available as a [poster](2020-JGI-Galaxy.pdf))  
 
 **Abstract:**
