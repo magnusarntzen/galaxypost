@@ -1,6 +1,6 @@
 Integrative meta-omics in Galaxy
 ================================
-By Magnus Ø. Arntzen (Norwegian University of Life Sciences) and Bjoern Gruning (University of Freiburg)  
+By Magnus Ø. Arntzen (Norwegian University of Life Sciences)  
 (This post is also available as a [poster](2020-JGI-Galaxy.pdf))  
 
 **Abstract:**
@@ -99,20 +99,26 @@ Here we have drawn the relevant pathways and decorated them with metaproteomics 
 
   
 **Acknowledgements:**  
+---------------------
 This work was funded by the [Norwegian Centennial Chair Programme](https://cbs.umn.edu/norwegian-centennial-chair/home).  
   
 This study has been described in its entirey here:
 - [Kunath BJ, Delogu F, et. al. From proteins to polysaccharides: lifestyle and genetic evolution of Coprothermobacter proteolyticus. ISME J. 2019 Mar; 13(3):603-617](https://www.nature.com/articles/s41396-018-0290-y)
 - [Delogu F, Kunath BJ, et. Al. Integration of absolute multi-omics reveals translational and metabolic interplay in mixed-kingdom microbiomes. bioRxiv.](https://www.biorxiv.org/content/10.1101/857599v1)
 
-Contributers (Norwegian University of Life Sciences):
+**Contributors:**  
+
+Norwegian University of Life Sciences:
 - Francesco Delogu
 - Benoit Kunath
 - Phil Pope
 
-Contributers (University of Minnesota):
+University of Minnesota:
 - Praveen Kumar
 - Subina Mehta
 - James E. Johnson
 - Pratik Jagtap
 - Timothy J. Griffin
+
+University of Freiburg:  
+- Bjoern Gruning
