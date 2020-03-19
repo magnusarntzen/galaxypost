@@ -44,7 +44,7 @@ Samples were taken at different timepoints during the lifetime of the microbial 
 5.	Quantification of mRNA was done with the pseudoaligment software [Kallisto](https://pachterlab.github.io/kallisto/about) by mapping the transcripts to the putative genes predicted by FragGeneScan in the metagenomics workflow. The outputs from Kallisto, one per sample-pair, were joined in order to generate one single file for import to R. 
 
 ![META-T WORKFLOW FIGURE](metatranscriptomics.png)
-The metatranscriptomics workflow is shared publicly and can be found [here](LINK)
+The metatranscriptomics workflow is shared publicly and can be found [here](https://proteomics.usegalaxy.eu/u/mgnsrntzn/w/metat-metag-integration)
 
 **Metaproteomics:**
 -------------------
@@ -53,7 +53,7 @@ Samples for proteomics were taken for every timepoint as indicated in the datase
 2.	Identification and quantification of proteins were accomplished using the software [MaxQuant](https://www.maxquant.org/) by mapping MS/MS spectra to putative proteins predicted by FragGeneScan in the metagenomics workflow. The Protein Groups file was used as input in downstream R-scripts.
 
 ![META-P WORKFLOW FIGURE](metaproteomics.png)
-The metaproteomics workflow is shared publicly and can be found [here](LINK)
+The metaproteomics workflow is shared publicly and can be found [here](https://proteomics.usegalaxy.eu/u/mgnsrntzn/w/metap)
 
 **Integration of omics data using R:**
 --------------------------------------
