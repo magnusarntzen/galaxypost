@@ -44,7 +44,7 @@ Samples were taken at different timepoints during the lifetime of the microbial 
 5.	Quantification of mRNA was done with the pseudoaligment software [Kallisto](https://pachterlab.github.io/kallisto/about) by mapping the transcripts to the putative genes predicted by FragGeneScan in the metagenomics workflow. The outputs from Kallisto, one per sample-pair, were joined in order to generate one single file for import to R. 
 
 ![META-T WORKFLOW FIGURE](metatranscriptomics.png)
-The metatranscriptomics workflow is shared publicly and can be found [here](https://proteomics.usegalaxy.eu/u/mgnsrntzn/w/metat-metag-integration)
+The metatranscriptomics workflow is shared publicly and can be found [here](https://proteomics.usegalaxy.eu/u/mgnsrntzn/w/metat)
 
 **Metaproteomics:**
 -------------------
