@@ -32,7 +32,7 @@ An Illumnia HiSeq 3000 platform was used for metagenomics shotgun sequencing of 
 10.	The putative genes and proteins (fasta-files) from FragGeneScan can be manually augmented with strains from public repositories such as [NCBI](https://www.ncbi.nlm.nih.gov/genome), [UniProt](https://www.uniprot.org/) or [IMG](https://img.jgi.doe.gov/cgi-bin/w/main.cgi).  
 
 ![META-G WORKFLOW FIGURE](metagenomics.png)
-The metagenomics workflow is shared publicly and can be found [here](LINK)
+The metagenomics workflow is shared publicly and can be found [here](https://proteomics.usegalaxy.eu/u/mgnsrntzn/w/metag)
 
 **Metatranscriptomics:**
 ------------------------
